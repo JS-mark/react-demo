@@ -582,9 +582,6 @@ module.exports = function (webpackEnv) {
                   sourceMap: isEnvProduction
                     ? shouldUseSourceMap
                     : isEnvDevelopment,
-                  modules: {
-                    getLocalIdent: getCSSModuleLocalIdent,
-                  },
                 },
                 "stylus-loader"
               ),
@@ -593,7 +590,7 @@ module.exports = function (webpackEnv) {
             // Adds support for CSS Modules, but using STYLUS
             // using the extension .module.styl or .module.styl
             {
-              test: lessModuleRegex,
+              test: stylModuleRegex,
               use: getStyleLoaders(
                 {
                   importLoaders: 3,
